@@ -2,6 +2,8 @@
 
 Next.js frontend for the Ferremas e-commerce platform.
 
+> Last updated: June 2025
+
 ## Development
 
 ```bash
