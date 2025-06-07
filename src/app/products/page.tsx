@@ -17,7 +17,10 @@ export default function ProductsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+    // Get the current window location and build API URL dynamically
+    const currentHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+    const apiUrl = `http://${currentHost}:4000`;
+    console.log('Dynamic API URL:', apiUrl, 'Current host:', currentHost); // Debug log
     fetch(`${apiUrl}/api/products`)
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
